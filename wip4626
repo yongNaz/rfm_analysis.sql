@@ -1,0 +1,27 @@
+Welcome
+You are viewing the BigQuery SQL script for:
+-- E-Commerce Customer Segmentation (RFM Analysis) --
+
+This repository contains the SQL transformation logic used to perform RFM (Recency, Frequency, Monetary) analysis on an e-commerce dataset containing over 541,000 transactions.
+
+The goal of this script is to transition raw, row-level transaction data into a high-performance summary table that categorizes customers based on their purchasing behavior. 
+This serves as the "Transformation" layer in a modern ELT (Extract, Load, Transform) pipeline.
+
+--Technical
+The script follows a structured multi-step process using CTLEs
+Data Cleaning - Filters out null CustomerID and exludes negative Quantity or UnitPrice values.
+Aggregation - Summarise the data at the CustomerID level to calculate recency(R), frequency(F), and monetary(M).
+Statistical Scoring - Use the NITLE(5) window function to divide customers into quintiles 1 to 5 for each R, F, and M metric.
+Behavioral Segmentation - Implements a CASE statement to map combined scores into 8 human-readable business segments (eg. Champion, Local Customer, Hibernating, At Risk).
+
+--Tools
+Platform - Google Cloud Platform
+Engine - BigQuery Standard SQL
+Methodology - ETL (Extract, Load, Transform)
+Techniques - CTEs, Window Functions, Data Aggregation.
+
+--Impact
+The raw data is reduced from 541000 rows to app 4300 unique customer profiles
+This enabling in identiying eg. the top 45% of high value customers, the target 58 "At Risk".
+
+Thank You
