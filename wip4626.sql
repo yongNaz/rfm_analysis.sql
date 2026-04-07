@@ -2,7 +2,7 @@ CREATE OR REPLACE TABLE `rfm26-492505.sales.rfm_analysis_results` AS
 WITH rfm_base AS (
   SELECT
     CustomerID,
-    -- Analysis date set to 2011-12-10 for your 2010-2011 dataset
+    -- Analysis date set to 2011-12-10 for 2010-2011 dataset
     DATE_DIFF(DATE('2011-12-10'), DATE(MAX(InvoiceDate)), DAY) AS recency,
     COUNT(DISTINCT InvoiceNo) AS frequency,
     SUM(Quantity * UnitPrice) AS monetary
