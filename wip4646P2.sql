@@ -1,4 +1,4 @@
--- Data Cleaning
+-- Data Cleaning (Customer Churn And Retention)
 
 -- ROW COUNT & UNIQUENESS
 SELECT
